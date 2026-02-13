@@ -1,0 +1,79 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.registercontainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(.//images/l1.gif);
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    background-clip: border-box;
+}
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    box-shadow: 0 0 40px white;
+    line-height: 20px;
+}
+.register form{
+    text-align: center;
+}
+.register h1{
+    margin-bottom: 20px;
+    color: white;
+}
+input{
+    width: 300px;
+    height: 20px;
+    padding: 20px;
+    border: none;
+    border-bottom: 1px solid purple;
+}
+.regist{
+    width: 100px;
+    height: 40px;
+    border: none;
+    z-index: 1;
+    position: relative;
+    transition: color 0.5s ease;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.regist::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, #9d00ff,#e100ff,#ff00ff);
+    z-index: -1;
+}
+.regist:hover::before{
+    width: 100%;
+}
+.regist:hover{
+    color: white;
+}
+@media screen and (min-width: 280px) and (max-width: 554px){
+    .register{
+        width: 90%;
+    }
+    input{
+    width: 90%;
+
+    }
+    
+}

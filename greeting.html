@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAYU-TAMIL</title>
+
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html";
+}
+</script>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background-image: url(./images/l6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hearts{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    bottom:0;
+    animation:floatUp 4s linear forwards;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+
+.envelope{
+    position:absolute;
+    width:280px;
+    height:180px;
+    background: linear-gradient(135deg, #8e0e00, #1f1c18);
+    border-radius:8px;
+    cursor:pointer;
+    overflow:hidden;
+    transition:all 0.8s ease;
+    z-index:3;
+    box-shadow: 0 15px 40px rgba(255,0,80,0.4);
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:90px;
+    background: linear-gradient(135deg, #b31217, #000000);
+    top:0;
+    left:0;
+    transform-origin:top;
+    transition:transform 0.6s ease;
+    clip-path:polygon(0 0,50% 100%,100% 0);
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.hide{
+    opacity:0;
+    transform:scale(0.8);
+}
+
+.card{
+    position:absolute;
+    width:260px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    text-align:center;
+    transform:translateY(150px);
+    opacity:0;
+    transition:all 0.8s ease;
+    z-index:2;
+}
+
+.card.show{
+    transform:translateY(-40px);
+    opacity:1;
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.message{
+    margin-top:10px;
+    min-height:60px;
+    font-size:16px;
+}
+
+button{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    background:#ff758c;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+
+.regist{
+    width: 100px;
+    height: 40px;
+    border: none;
+    z-index: 1;
+    position: relative;
+    transition: color 0.5s ease;
+    overflow: hidden;
+    border-radius: 10px;
+    position:fixed;
+    bottom:50px;
+    right:50px;
+    z-index:9999;
+}
+.regist::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, #9d00ff,#e100ff,#ff00ff);
+    z-index: -1;
+}
+.regist:hover::before{
+    width: 100%;
+}
+.regist:hover{
+    color: white;
+}
+
+@media(max-width:400px){
+    .envelope{width:90%;}
+    .card{width:85%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="envelope" id="envelope">
+    <div class="flap"></div>
+</div>
+
+<div class="card" id="card">
+    <img src="./images/20251231_175544.jpg.jpeg" alt="Photo">
+    <h3>Love You ❤️</h3>
+    <div class="message" id="text"></div>
+    <button onclick="toggleMusic(this)">Play Music 🎵</button>
+</div>
+
+<audio id="music" src="./music/Thani_Oruvan_-_Kannala_Kannala_Video___Jayam_Ravi,_Nayanthara___Hip_Hop_Tamizha(128k).mp3.mpeg"></audio>
+
+<button class="regist" onclick="logout()">Logout</button>
+
+<script src="greeting.js">
+
+</script>
+
+</body>
+</html>

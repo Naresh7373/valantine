@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GAYU-TAMIL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="next.css" type="text/css">
+
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="carousel-wrapper">
+
+    <div class="carousel">
+
+      <span style="--i:1">
+        <img src="./images/WhatsApp Image 2026-02-11 at 3.03.05 PM.jpeg">
+      </span>
+
+      <span style="--i:2">
+        <img src="./images/1757853037249.jpg.jpeg">
+      </span>
+
+      <span style="--i:3">
+        <img src="./images/WhatsApp Image 2026-02-11 at 3.03.11 PM.jpeg">
+      </span>
+
+      <span style="--i:4">
+        <img src="./images/WhatsApp Image 2026-02-11 at 3.11.27 PM.jpeg">
+      </span>
+
+      <span style="--i:5">
+        <img src="./images/20251231_175544.jpg.jpeg">
+      </span>
+
+      <span style="--i:6">
+        <img src="./images/20260101_184130.jpg.jpeg">
+      </span>
+
+    </div>
+
+    <button class="btn" onclick="goNext()">Next</button>
+
+  </div>
+
+  <script>
+    function goNext() {
+      window.location.href = "greeting.html";
+    }
+  </script>
+
+</body>
+</html>
